@@ -13,7 +13,10 @@ function ticketServiceURL() {
 // Retorna la url del servicio. Es una función de configuración.
 function WShostURL() {
     var host = window.location.host;
-    var url = 'ws://' + (host);
+    var url = 'wss://' + (host);
+    if(host.startsWith('localhost')){
+        url = 'ws://' + (host);
+    }
     console.log("host URL Calculada: " + url);
     return url;
 }
